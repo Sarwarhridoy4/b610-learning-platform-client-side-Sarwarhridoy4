@@ -1,9 +1,10 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 
 const Signin = () => {
     return (
         <div>
-            <div className='w-full max-w-md p-8 space-y-3 rounded-xl dark:bg-gray-900 dark:text-gray-100'>
+            <div className='mx-auto mt-8 mb-8 w-full max-w-md p-8 space-y-3 rounded-xl dark:bg-gray-900 dark:text-gray-100'>
         <h1 className='text-2xl font-bold text-center'>Login</h1>
         <form
           novalidate=''
@@ -81,13 +82,11 @@ const Signin = () => {
         </div>
         <p className='text-xs text-center sm:px-6 dark:text-gray-400'>
           Don't have an account?
-          <a
-            rel='noopener noreferrer'
-            href='#'
+          <Link to='/get-started'
             className='underline dark:text-gray-100'
           >
             Sign up
-          </a>
+          </Link>
         </p>
       </div>
         </div>

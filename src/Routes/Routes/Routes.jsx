@@ -2,6 +2,7 @@ import { createBrowserRouter } from "react-router-dom";
 import Blogs from "../../Blogs/Blogs";
 import Courses from "../../Courses/Courses";
 import SignUp from "../../SignUp/SignUp";
+import Signin from "../../SignIn/Signin";
 import FAQ from "../../FAQ/FAQ";
 import Home from "../../Home/Home";
 import Main from "../../Layout/Main";
@@ -30,6 +31,10 @@ export const routes = createBrowserRouter([
             {
                 path: "/get-started",
                 element:<SignUp></SignUp> ,
+            },
+            {
+                path: "/signin",
+                element:<Signin></Signin> ,
             },
         ]
     }

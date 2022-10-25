@@ -1,10 +1,11 @@
 import React from "react";
+import { Link } from "react-router-dom";
 
 const SignUp = () => {
   return (
     <div>
-      <div className='w-full max-w-md p-8 space-y-3 rounded-xl dark:bg-gray-900 dark:text-gray-100'>
-        <h1 className='text-2xl font-bold text-center'>Login</h1>
+      <div className='mx-auto mt-8 mb-8 w-full max-w-md p-8 space-y-3 rounded-xl dark:bg-gray-900 dark:text-gray-100'>
+        <h1 className='text-2xl font-bold text-center'>SignUp</h1>
         <form
           novalidate=''
           action=''
@@ -40,7 +41,7 @@ const SignUp = () => {
             </div>
           </div>
           <button className='block w-full p-3 text-center rounded-sm dark:text-gray-900 dark:bg-violet-400'>
-            Sign in
+            Sign Up
           </button>
         </form>
         <div className='flex items-center pt-4 space-x-1'>
@@ -80,14 +81,12 @@ const SignUp = () => {
           </button>
         </div>
         <p className='text-xs text-center sm:px-6 dark:text-gray-400'>
-          Don't have an account?
-          <a
-            rel='noopener noreferrer'
-            href='#'
+          Already an user?
+          <Link to='/signin'
             className='underline dark:text-gray-100'
           >
-            Sign up
-          </a>
+            Sign In
+          </Link>
         </p>
       </div>
     </div>
