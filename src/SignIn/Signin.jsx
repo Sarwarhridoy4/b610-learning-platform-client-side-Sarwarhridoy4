@@ -1,10 +1,24 @@
-import React from 'react';
-import { Link } from 'react-router-dom';
+import React from "react";
+import { useContext } from "react";
+import { Link } from "react-router-dom";
+import { AuthContext } from "../Contexts/AuthProvider/AuthProvider";
 
 const Signin = () => {
-    return (
-        <div>
-            <div className='mx-auto mt-8 mb-8 w-full max-w-md p-8 space-y-3 rounded-xl dark:bg-gray-900 dark:text-gray-100'>
+  const { googleLogin } = useContext(AuthContext);
+
+  const handelGoogleSignIn = () => {
+    googleLogin()
+      .then((result) => {
+        const user = result.user;
+        console.log(user);
+      })
+      .catch((error) => {
+        console.error(error);
+      });
+  };
+  return (
+    <div>
+      <div className='mx-auto mt-8 mb-8 w-full max-w-md p-8 space-y-3 rounded-xl dark:bg-gray-900 dark:text-gray-100'>
         <h1 className='text-2xl font-bold text-center'>Login</h1>
         <form
           novalidate=''
@@ -52,7 +66,11 @@ const Signin = () => {
           <div className='flex-1 h-px sm:w-16 dark:bg-gray-700'></div>
         </div>
         <div className='flex justify-center space-x-4'>
-          <button aria-label='Log in with Google' className='p-3 rounded-sm'>
+          <button
+            onClick={handelGoogleSignIn}
+            aria-label='Log in with Google'
+            className='p-3 rounded-sm'
+          >
             <svg
               xmlns='http://www.w3.org/2000/svg'
               viewBox='0 0 32 32'
@@ -82,15 +100,13 @@ const Signin = () => {
         </div>
         <p className='text-xs text-center sm:px-6 dark:text-gray-400'>
           Don't have an account?
-          <Link to='/get-started'
-            className='underline dark:text-gray-100'
-          >
+          <Link to='/get-started' className='underline dark:text-gray-100'>
             Sign up
           </Link>
         </p>
       </div>
-        </div>
-    );
+    </div>
+  );
 };
 
 export default Signin;

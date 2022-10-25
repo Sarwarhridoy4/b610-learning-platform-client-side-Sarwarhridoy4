@@ -1,9 +1,10 @@
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
 import { Link } from "react-router-dom";
+import { AuthContext } from "../../Contexts/AuthProvider/AuthProvider";
 
 const Navbar = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
-
+  const {user} = useContext(AuthContext)
   return (
     <div>
       <div className='px-4 py-5 mx-auto sm:max-w-xl md:max-w-full lg:max-w-screen-xl md:px-24 lg:px-8'>
@@ -76,13 +77,21 @@ const Navbar = () => {
             </span>
           </a>
           <ul className='flex items-center hidden ml-auto space-x-8 lg:flex'>
+            {
+              user ? <span>{user.displayName}</span> : null
+            }
             <div className='form-control'>
               <label className='label cursor-pointer'>
                 <span className='label-text'>Dark Mode</span>
                 <input type='checkbox' className='toggle toggle-primary' />
               </label>
             </div>
-            <li>
+            {
+              user? <label tabIndex={0} className="btn btn-ghost btn-circle avatar">
+              <div className="w-10 rounded-full">
+                  <img src={user?.photoURL} alt={user?.displayName}/>
+              </div>
+            </label> :<li>
               <Link
                 to='/get-started'
                 aria-label='get-started'
@@ -92,6 +101,7 @@ const Navbar = () => {
                 Get Started
               </Link>
             </li>
+            }
           </ul>
           <div className='ml-auto lg:hidden'>
             <button
