@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { Link } from "react-router-dom";
 
 const Navbar = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -9,44 +10,40 @@ const Navbar = () => {
         <div className='relative flex grid items-center grid-cols-2 lg:grid-cols-3'>
           <ul className='flex items-center hidden space-x-8 lg:flex'>
             <li>
-              <a
-                href='/'
+              <Link to='/home'
                 aria-label='Our product'
                 title='Our product'
                 className='font-medium tracking-wide text-gray-700 transition-colors duration-200 hover:text-deep-purple-accent-400'
               >
                 Home
-              </a>
+              </Link>
             </li>
             <li>
-              <a
-                href='/'
+              <Link to='/courses'
                 aria-label='Our product'
                 title='Our product'
                 className='font-medium tracking-wide text-gray-700 transition-colors duration-200 hover:text-deep-purple-accent-400'
               >
                 Courses
-              </a>
+              </Link>
             </li>
             <li>
-              <a
-                href='/'
+              <Link to='/faq'
                 aria-label='Product pricing'
                 title='Product pricing'
                 className='font-medium tracking-wide text-gray-700 transition-colors duration-200 hover:text-deep-purple-accent-400'
               >
                 FAQ
-              </a>
+              </Link>
             </li>
             <li>
-              <a
-                href='/'
+              <Link to='/blogs'
                 aria-label='Product pricing'
                 title='Product pricing'
                 className='font-medium tracking-wide text-gray-700 transition-colors duration-200 hover:text-deep-purple-accent-400'
               >
                 Blogs
-              </a>
+              </Link>
             </li>
           </ul>
           <a
@@ -71,7 +68,7 @@ const Navbar = () => {
               <rect x='14' y='11' width='7' height='12' />
             </svg>
             <span className='ml-2 text-xl font-bold tracking-wide text-gray-800 uppercase'>
-              Company
+              E-Pathshala
             </span>
           </a>
           <ul className='flex items-center hidden ml-auto space-x-8 lg:flex'>
@@ -82,14 +79,13 @@ const Navbar = () => {
               </label>
             </div>
             <li>
-              <a
-                href='/'
-                aria-label='Sign in'
-                title='Sign in'
+              <Link to='/get-started'
+                aria-label='get-started'
+                title='Get-Started'
                 className='font-medium tracking-wide text-gray-700 transition-colors duration-200 hover:text-deep-purple-accent-400'
               >
                 Sign in
-              </a>
+              </Link>
             </li>
           </ul>
           <div className='ml-auto lg:hidden'>
