@@ -10,7 +10,8 @@ const Navbar = () => {
         <div className='relative flex grid items-center grid-cols-2 lg:grid-cols-3'>
           <ul className='flex items-center hidden space-x-8 lg:flex'>
             <li>
-              <Link to='/home'
+              <Link
+                to='/home'
                 aria-label='Our product'
                 title='Our product'
                 className='font-medium tracking-wide text-gray-700 transition-colors duration-200 hover:text-deep-purple-accent-400'
@@ -19,7 +20,8 @@ const Navbar = () => {
               </Link>
             </li>
             <li>
-              <Link to='/courses'
+              <Link
+                to='/courses'
                 aria-label='Our product'
                 title='Our product'
                 className='font-medium tracking-wide text-gray-700 transition-colors duration-200 hover:text-deep-purple-accent-400'
@@ -28,7 +30,8 @@ const Navbar = () => {
               </Link>
             </li>
             <li>
-              <Link to='/faq'
+              <Link
+                to='/faq'
                 aria-label='Product pricing'
                 title='Product pricing'
                 className='font-medium tracking-wide text-gray-700 transition-colors duration-200 hover:text-deep-purple-accent-400'
@@ -37,7 +40,8 @@ const Navbar = () => {
               </Link>
             </li>
             <li>
-              <Link to='/blogs'
+              <Link
+                to='/blogs'
                 aria-label='Product pricing'
                 title='Product pricing'
                 className='font-medium tracking-wide text-gray-700 transition-colors duration-200 hover:text-deep-purple-accent-400'
@@ -75,11 +79,12 @@ const Navbar = () => {
             <div className='form-control'>
               <label className='label cursor-pointer'>
                 <span className='label-text'>Dark Mode</span>
-                <input type='checkbox' className='toggle toggle-primary'/>
+                <input type='checkbox' className='toggle toggle-primary' />
               </label>
             </div>
             <li>
-              <Link to='/get-started'
+              <Link
+                to='/get-started'
                 aria-label='get-started'
                 title='Get-Started'
                 className='font-medium tracking-wide text-gray-700 transition-colors duration-200 hover:text-deep-purple-accent-400'
@@ -136,9 +141,11 @@ const Navbar = () => {
                           <rect x='14' y='1' width='7' height='6' />
                           <rect x='14' y='11' width='7' height='12' />
                         </svg>
-                        <span className='ml-2 text-xl font-bold tracking-wide text-gray-800 uppercase'>
-                          Company
-                        </span>
+                        <Link to='/home'>
+                          <span className='ml-2 text-xl font-bold tracking-wide text-gray-800 uppercase'>
+                            E-pathshala
+                          </span>
+                        </Link>
                       </a>
                     </div>
                     <div>
@@ -160,44 +167,33 @@ const Navbar = () => {
                   <nav>
                     <ul className='space-y-4'>
                       <li>
-                        <a
-                          href='/'
-                          aria-label='Our product'
-                          title='Our product'
+                        <Link
+                          to='/courses'
                           className='font-medium tracking-wide text-gray-700 transition-colors duration-200 hover:text-deep-purple-accent-400'
                         >
-                          Product
-                        </a>
+                          Courses
+                        </Link>
                       </li>
                       <li>
-                        <a
-                          href='/'
-                          aria-label='Our product'
-                          title='Our product'
+                        <Link to='/faq'
                           className='font-medium tracking-wide text-gray-700 transition-colors duration-200 hover:text-deep-purple-accent-400'
                         >
-                          Features
-                        </a>
+                          FAQ
+                        </Link>
                       </li>
                       <li>
-                        <a
-                          href='/'
-                          aria-label='Product pricing'
-                          title='Product pricing'
+                        <Link to='/blogs'
                           className='font-medium tracking-wide text-gray-700 transition-colors duration-200 hover:text-deep-purple-accent-400'
                         >
-                          Pricing
-                        </a>
+                          Blogs
+                        </Link>
                       </li>
                       <li>
-                        <a
-                          href='/'
-                          aria-label='Sign in'
-                          title='Sign in'
+                        <Link to='/signin'
                           className='font-medium tracking-wide text-gray-700 transition-colors duration-200 hover:text-deep-purple-accent-400'
                         >
                           Sign in
-                        </a>
+                        </Link>
                       </li>
                     </ul>
                   </nav>
