@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { createContext } from "react";
 import {
+  createUserWithEmailAndPassword,
   getAuth,
   GithubAuthProvider,
   GoogleAuthProvider,
@@ -27,6 +28,10 @@ const AuthProvider = ({ children }) => {
     return signInWithPopup(auth, githubProvider);
   };
 
+  const createUser = (email,password) => {
+    return createUserWithEmailAndPassword(auth, email, password)
+  }
+
 
 // Sign out code here
   const logOut = () => {
@@ -45,7 +50,7 @@ const AuthProvider = ({ children }) => {
     };
   }, []);
 
-  const authInfo = { user, googleLogin, logOut, githubLogin};
+  const authInfo = { user, googleLogin, logOut, githubLogin,createUser};
 
   return (
     <AuthContext.Provider value={authInfo}>{children}</AuthContext.Provider>

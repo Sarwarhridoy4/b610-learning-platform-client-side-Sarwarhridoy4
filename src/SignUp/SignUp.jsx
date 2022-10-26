@@ -3,8 +3,8 @@ import { Link } from "react-router-dom";
 import { AuthContext } from "../Contexts/AuthProvider/AuthProvider";
 
 const SignUp = () => {
-  const { googleLogin, githubLogin } = useContext(AuthContext);
-
+  const { googleLogin, githubLogin,createUser } = useContext(AuthContext);
+  //googleLogin
   const handelGoogleSignIn = () => {
     googleLogin()
       .then((result) => {
@@ -15,7 +15,7 @@ const SignUp = () => {
         console.error(error);
       });
   };
-
+  //githubLogin
   const handelGithubSignIn = () => {
     githubLogin()
       .then((result) => {
@@ -27,22 +27,43 @@ const SignUp = () => {
       });
   };
 
+  //Manually sign up with user details
+
+  const handelSubmit = event => {
+    event.preventDefault();
+    const form = event.target;
+    const name = form.name.value;
+    const email = form.email.value;
+    const password = form.password.value;
+    const photoURL = form.photoURL.value;
+    console.log(name, email, password, photoURL);
+    
+    createUser(email, password)
+      .then(result => {
+        const user = result.user;
+        console.log(user);
+      })
+    .catch((error) => {
+        console.error(error);
+      });
+  }
+
   return (
     <div>
       <div className='mx-auto mt-8 mb-8 w-full max-w-md p-8 space-y-3 rounded-xl dark:bg-gray-900 dark:text-gray-100'>
         <h1 className='text-2xl font-bold text-center'>SignUp</h1>
-        <form
+        <form onSubmit={handelSubmit}
          
           className='space-y-6 ng-untouched ng-pristine ng-valid'
         >
           <div className='space-y-1 text-sm'>
-            <label for='username' className='block dark:text-gray-400'>
+            <label htmlFor='username' className='block dark:text-gray-400'>
               Your Name
             </label>
             <input
               type='text'
-              name='yourname'
-              id='yourrname'
+              name='name'
+              id='name'
               placeholder='Your name'
               required
               className='w-full px-4 py-3 rounded-md dark:border-gray-700 dark:bg-gray-900 dark:text-gray-100 focus:dark:border-violet-400'
@@ -51,7 +72,7 @@ const SignUp = () => {
 
 
           <div className='space-y-1 text-sm'>
-            <label for='password' className='block dark:text-gray-400'>
+            <label htmlFor='password' className='block dark:text-gray-400'>
               Email
             </label>
             <input
@@ -62,16 +83,12 @@ const SignUp = () => {
               required
               className='w-full px-4 py-3 rounded-md dark:border-gray-700 dark:bg-gray-900 dark:text-gray-100 focus:dark:border-violet-400'
             />
-            <div className='flex justify-end text-xs dark:text-gray-400'>
-              <a rel='noopener noreferrer' href='/'>
-                Forgot Password?
-              </a>
-            </div>
+            
           </div>
 
 
           <div className='space-y-1 text-sm'>
-            <label for='password' className='block dark:text-gray-400'>
+            <label htmlFor='password' className='block dark:text-gray-400'>
               Password
             </label>
             <input
@@ -82,17 +99,13 @@ const SignUp = () => {
               required
               className='w-full px-4 py-3 rounded-md dark:border-gray-700 dark:bg-gray-900 dark:text-gray-100 focus:dark:border-violet-400'
             />
-            <div className='flex justify-end text-xs dark:text-gray-400'>
-              <a rel='noopener noreferrer' href='/'>
-                Forgot Password?
-              </a>
-            </div>
+            
           </div>
 
 
           <div className='space-y-1 text-sm'>
-            <label for='password' className='block dark:text-gray-400'>
-              Password
+            <label htmlFor='password' className='block dark:text-gray-400'>
+              Photo URL
             </label>
             <input
               type='text'
