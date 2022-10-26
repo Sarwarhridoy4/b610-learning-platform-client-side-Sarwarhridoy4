@@ -31,8 +31,7 @@ const Signin = () => {
       <div className='mx-auto mt-8 mb-8 w-full max-w-md p-8 space-y-3 rounded-xl dark:bg-gray-900 dark:text-gray-100'>
         <h1 className='text-2xl font-bold text-center'>Login</h1>
         <form
-          novalidate=''
-          action=''
+          
           className='space-y-6 ng-untouched ng-pristine ng-valid'
         >
           <div className='space-y-1 text-sm'>
@@ -44,6 +43,7 @@ const Signin = () => {
               name='username'
               id='username'
               placeholder='Username'
+              required
               className='w-full px-4 py-3 rounded-md dark:border-gray-700 dark:bg-gray-900 dark:text-gray-100 focus:dark:border-violet-400'
             />
           </div>
@@ -56,6 +56,7 @@ const Signin = () => {
               name='password'
               id='password'
               placeholder='Password'
+              required
               className='w-full px-4 py-3 rounded-md dark:border-gray-700 dark:bg-gray-900 dark:text-gray-100 focus:dark:border-violet-400'
             />
             <div className='flex justify-end text-xs dark:text-gray-400'>
