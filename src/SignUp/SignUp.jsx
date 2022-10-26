@@ -32,22 +32,44 @@ const SignUp = () => {
       <div className='mx-auto mt-8 mb-8 w-full max-w-md p-8 space-y-3 rounded-xl dark:bg-gray-900 dark:text-gray-100'>
         <h1 className='text-2xl font-bold text-center'>SignUp</h1>
         <form
-          novalidate=''
-          action=''
+         
           className='space-y-6 ng-untouched ng-pristine ng-valid'
         >
           <div className='space-y-1 text-sm'>
             <label for='username' className='block dark:text-gray-400'>
-              Username
+              Your Name
             </label>
             <input
               type='text'
-              name='username'
-              id='username'
-              placeholder='Username'
+              name='yourname'
+              id='yourrname'
+              placeholder='Your name'
+              required
               className='w-full px-4 py-3 rounded-md dark:border-gray-700 dark:bg-gray-900 dark:text-gray-100 focus:dark:border-violet-400'
             />
           </div>
+
+
+          <div className='space-y-1 text-sm'>
+            <label for='password' className='block dark:text-gray-400'>
+              Email
+            </label>
+            <input
+              type='email'
+              name='email'
+              id='email'
+              placeholder='Provide your email address'
+              required
+              className='w-full px-4 py-3 rounded-md dark:border-gray-700 dark:bg-gray-900 dark:text-gray-100 focus:dark:border-violet-400'
+            />
+            <div className='flex justify-end text-xs dark:text-gray-400'>
+              <a rel='noopener noreferrer' href='/'>
+                Forgot Password?
+              </a>
+            </div>
+          </div>
+
+
           <div className='space-y-1 text-sm'>
             <label for='password' className='block dark:text-gray-400'>
               Password
@@ -57,6 +79,7 @@ const SignUp = () => {
               name='password'
               id='password'
               placeholder='Password'
+              required
               className='w-full px-4 py-3 rounded-md dark:border-gray-700 dark:bg-gray-900 dark:text-gray-100 focus:dark:border-violet-400'
             />
             <div className='flex justify-end text-xs dark:text-gray-400'>
