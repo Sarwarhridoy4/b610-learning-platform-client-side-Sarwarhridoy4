@@ -6,6 +6,7 @@ import {
   GithubAuthProvider,
   GoogleAuthProvider,
   onAuthStateChanged,
+  signInWithEmailAndPassword,
   signInWithPopup,
   signOut,
 } from "firebase/auth";
@@ -32,6 +33,10 @@ const AuthProvider = ({ children }) => {
     return createUserWithEmailAndPassword(auth, email, password)
   }
 
+  const signIn = (email,password) => {
+    return signInWithEmailAndPassword(auth, email, password)
+  }
+
 
 // Sign out code here
   const logOut = () => {
@@ -50,7 +55,7 @@ const AuthProvider = ({ children }) => {
     };
   }, []);
 
-  const authInfo = { user, googleLogin, logOut, githubLogin,createUser};
+  const authInfo = { user, googleLogin, logOut, githubLogin,createUser,signIn};
 
   return (
     <AuthContext.Provider value={authInfo}>{children}</AuthContext.Provider>
