@@ -88,10 +88,29 @@ const SignUp = () => {
               </a>
             </div>
           </div>
+
+
+          <div className='space-y-1 text-sm'>
+            <label for='password' className='block dark:text-gray-400'>
+              Password
+            </label>
+            <input
+              type='text'
+              name='photoURL'
+              id='photoURl'
+              placeholder='Photo URL'
+              required
+              className='w-full px-4 py-3 rounded-md dark:border-gray-700 dark:bg-gray-900 dark:text-gray-100 focus:dark:border-violet-400'
+            />
+            
+          </div>
+
           <button className='block w-full p-3 text-center rounded-sm dark:text-gray-900 dark:bg-violet-400'>
             Sign Up
           </button>
         </form>
+
+
         <div className='flex items-center pt-4 space-x-1'>
           <div className='flex-1 h-px sm:w-16 dark:bg-gray-700'></div>
           <p className='px-3 text-sm dark:text-gray-400'>
