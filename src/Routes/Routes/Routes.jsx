@@ -6,11 +6,13 @@ import Signin from "../../SignIn/Signin";
 import FAQ from "../../FAQ/FAQ";
 import Home from "../../Home/Home";
 import Main from "../../Layout/Main";
+import Errror from "../../404/Errror";
 
 export const routes = createBrowserRouter([
     {
         path: "/",
         element: <Main></Main>,
+        errorElement:<Errror></Errror>,
         children: [
             {
                 path: "/home",
