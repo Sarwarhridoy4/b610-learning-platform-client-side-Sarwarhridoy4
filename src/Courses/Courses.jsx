@@ -18,24 +18,25 @@ const Courses = () => {
     <div class='drawer'>
       <input id='my-drawer' type='checkbox' class='drawer-toggle' />
       <div class='drawer-content'>
-        
         <label
           for='my-drawer'
           class="btn btn-primary drawer-button w-full h-40 bg-[url('https://cdn.pixabay.com/photo/2017/03/25/17/55/colorful-2174045_960_720.png')] bg-cover"
         >
           Open Categories
         </label>
-        <div className="my-6 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
-        {
-            courses.map(course => <Course
+        <div className='my-6 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4'>
+          {courses.map((course) => (
+            <Course
               id={course.id}
               title={course.title}
               description={course.description}
-              image={course.image}></Course>)
-        }
+              image={course.image}
+              course={course}
+            ></Course>
+          ))}
         </div>
       </div>
-      
+
       <div class='drawer-side'>
         <label for='my-drawer' class='drawer-overlay'></label>
         <ul class='menu p-4 overflow-y-auto w-80 bg-base-100 text-base-content'>

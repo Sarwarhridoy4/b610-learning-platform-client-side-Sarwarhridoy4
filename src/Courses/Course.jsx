@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 
 const Course = ({id,title,description,image}) => {
   return (
@@ -9,9 +10,9 @@ const Course = ({id,title,description,image}) => {
         </figure>
         <div className='card-body'>
           <h2 className='card-title'>{title}</h2>
-          <p>{description.slice(0,50)+ '...'}</p>
+          <p>{description.slice(0,150)}</p>
           <div className='card-actions justify-end'>
-            <button className='btn btn-primary'>Start now!</button>
+            <Link to='/course_detailse'><button className='btn btn-primary'>Start now!</button></Link>
           </div>
         </div>
       </div>
