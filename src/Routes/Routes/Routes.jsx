@@ -22,7 +22,7 @@ export const routes = createBrowserRouter([
             },
             {
                 path: "/courses",
-                loader: () => fetch('http://localhost:5000/courses'),
+                loader: () => fetch('https://e-pathshala-ochre.vercel.app/courses'),
                 element:<Courses></Courses> ,
             },
             {
@@ -31,7 +31,7 @@ export const routes = createBrowserRouter([
             },
             {
                 path: "/blogs",
-                loader: () => fetch('http://localhost:5000/blogs'),
+                loader: () => fetch('https://e-pathshala-ochre.vercel.app/blogs'),
                 element:<Blogs></Blogs> ,
             },
             {
@@ -44,12 +44,12 @@ export const routes = createBrowserRouter([
             },
             {
                 path: "/category/:id",
-                loader:({params})=> fetch(`http://localhost:5000/category/${params.id}`),
+                loader:({params})=> fetch(`https://e-pathshala-ochre.vercel.app/category/${params.id}`),
                 element:<Course></Course> ,
             },
             {
                 path: "/details/:id",
-                loader:({params})=> fetch(`http://localhost:5000/details/${params.id}`),
+                loader:({params})=> fetch(`https://e-pathshala-ochre.vercel.app/details/${params.id}`),
                 element:<CourseDetail></CourseDetail> ,
             },
         ]
