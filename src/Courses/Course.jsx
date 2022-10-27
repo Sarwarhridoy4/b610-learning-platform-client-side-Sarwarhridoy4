@@ -1,9 +1,9 @@
 import React from "react";
 import { Link } from "react-router-dom";
 
-const Course = ({id,title,description,image}) => {
+const Course = ({title,description,image}) => {
   return (
-    <div>
+    <div className="grid grid-cols-3 gap-">
       <div className='card w-96 glass'>
         <figure>
           <img src={image} alt='car!' />

@@ -27,7 +27,7 @@ const Courses = () => {
         <div className='my-6 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4'>
           {courses.map((course) => (
             <Course
-              id={course.id}
+              key={course.id}
               title={course.title}
               description={course.description}
               image={course.image}
@@ -42,7 +42,7 @@ const Courses = () => {
         <ul class='menu p-4 overflow-y-auto w-80 bg-base-100 text-base-content'>
           {categories.map((category) => (
             <li>
-              <Link to={`/category/${category.id}`}>{category.name}</Link>
+              <Link to={`/details/${category.id}`}>{category.name}</Link>
             </li>
           ))}
         </ul>
