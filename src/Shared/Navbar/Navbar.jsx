@@ -57,8 +57,7 @@ const Navbar = () => {
               </Link>
             </li>
           </ul>
-          <a
-            href='/'
+          <Link to='/home'
             aria-label='Company'
             title='Company'
             className='inline-flex items-center lg:mx-auto'
@@ -81,7 +80,7 @@ const Navbar = () => {
             <span className='ml-2 text-xl font-bold tracking-wide text-gray-800 uppercase'>
               E-Pathshala
             </span>
-          </a>
+          </Link>
           <ul className='flex items-center hidden ml-auto space-x-8 lg:flex'>
             {user ? <span>{user.displayName}</span> : null}
             <div className='form-control'>
