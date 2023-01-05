@@ -10,7 +10,7 @@ const Courses = () => {
   const [categories, setcategories] = useState([]);
 
   useEffect(() => {
-    fetch("http://localhost:5000/course-categories")
+    fetch("https://e-pathshala-ochre.vercel.app/course-categories")
       .then((response) => response.json())
       .then((data) => setcategories(data));
   }, []);
