@@ -24,14 +24,14 @@ const Courses = () => {
         >
           Open Categories
         </label>
-        <div className='my-6 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4'>
+        <div className='mx-5 my-6 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-1'>
           {courses.map((course) => (
             <Course
               key={course.id}
-              id={course.id}
-              title={course.title}
-              description={course.description}
-              image={course.image}
+              // id={course.id}
+              // title={course.title}
+              // description={course.description}
+              // image={course.image}
               course={course}
             ></Course>
           ))}
