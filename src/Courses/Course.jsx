@@ -1,10 +1,9 @@
 import React from "react";
-import { Link, } from "react-router-dom";
+import { Link } from "react-router-dom";
 
-const Course = ({course}) => {
-  // const course = useLoaderData()[0];
-  // const { id, title, description, image } = course;
-  console.log(course);
+const Course = ({ course }) => {
+  // console.log(course);
+  
   const shortDesc = course?.description?.slice(0, 100);
   return (
     <div className="grid grid-cols-3 gap-2 w-9/12 mx-auto my-10">

@@ -8,7 +8,9 @@ import Home from "../../Home/Home";
 import Main from "../../Layout/Main";
 import Errror from "../../404/Errror";
 import CourseDetail from "../../Courses/CourseDetail";
-import Course from "../../Courses/Course";
+import CategorisedCourse from "../../Courses/CategorisedCourse";
+import Checkout from "../../Checkout/Checkout";
+import Private from "../Private/Private";
 
 export const routes = createBrowserRouter([
   {
@@ -52,10 +54,11 @@ export const routes = createBrowserRouter([
         path: "/category/:id",
         loader: ({ params }) =>
           fetch(
-            `https://e-pathshala-sarwarhridoy4.vercel.app/category/${params.id}`
+            `http://localhost:5000/category/${params.id}`
           ),
-        element: <Course></Course>,
+        element: <CategorisedCourse></CategorisedCourse>,
       },
+      
       {
         path: "/details/:id",
         loader: ({ params }) =>
@@ -63,6 +66,14 @@ export const routes = createBrowserRouter([
             `https://e-pathshala-sarwarhridoy4.vercel.app/details/${params.id}`
           ),
         element: <CourseDetail></CourseDetail>,
+      },
+      {
+        path: "/details/:id/checkout",
+        loader: ({ params }) =>
+          fetch(
+            `https://e-pathshala-sarwarhridoy4.vercel.app/details/${params.id}`
+          ),
+        element: <Private><Checkout></Checkout></Private>,
       },
     ],
   },
