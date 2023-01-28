@@ -28,6 +28,7 @@ const Courses = () => {
           {courses.map((course) => (
             <Course
               key={course.id}
+              id={course.id}
               title={course.title}
               description={course.description}
               image={course.image}
@@ -42,7 +43,7 @@ const Courses = () => {
         <ul class='menu p-4 overflow-y-auto w-80 bg-base-100 text-base-content'>
           {categories.map((category) => (
             <li>
-              <Link to={`/details/${category.id}`}>{category.name}</Link>
+              <Link to={`/category/${category?.id}`}>{category.name}</Link>
             </li>
           ))}
         </ul>
