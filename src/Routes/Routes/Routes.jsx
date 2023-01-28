@@ -11,51 +11,59 @@ import CourseDetail from "../../Courses/CourseDetail";
 import Course from "../../Courses/Course";
 
 export const routes = createBrowserRouter([
-    {
+  {
+    path: "/",
+    element: <Main></Main>,
+    errorElement: <Errror></Errror>,
+    children: [
+      {
         path: "/",
-        element: <Main></Main>,
-        errorElement:<Errror></Errror>,
-        children: [
-            {
-                path: "/",
-                element:<Home></Home> ,
-            },
-            {
-                path: "/home",
-                element:<Home></Home> ,
-            },
-            {
-                path: "/courses",
-                loader: () => fetch('https://e-pathshala-ochre.vercel.app/courses'),
-                element:<Courses></Courses> ,
-            },
-            {
-                path: "/faq",
-                element:<FAQ></FAQ> ,
-            },
-            {
-                path: "/blogs",
-                loader: () => fetch('https://e-pathshala-ochre.vercel.app/blogs'),
-                element:<Blogs></Blogs> ,
-            },
-            {
-                path: "/get-started",
-                element:<SignUp></SignUp> ,
-            },
-            {
-                path: "/signin",
-                element:<Signin></Signin> ,
-            },
-            {
-                path: "/category/:id",
-                loader:({params})=> fetch(`https://e-pathshala-ochre.vercel.app/category/${params.id}`),
-                element:<Course></Course> ,
-            },
-            {
-                path: "/details/:id",
-                loader:({params})=> fetch(`https://e-pathshala-ochre.vercel.app/details/${params.id}`),
-                element:<CourseDetail></CourseDetail> ,
-            },
-        ]
-    }
-])
+        element: <Home></Home>,
+      },
+      {
+        path: "/home",
+        element: <Home></Home>,
+      },
+      {
+        path: "/courses",
+        loader: () =>
+          fetch("https://e-pathshala-sarwarhridoy4.vercel.app/courses"),
+        element: <Courses></Courses>,
+      },
+      {
+        path: "/faq",
+        element: <FAQ></FAQ>,
+      },
+      {
+        path: "/blogs",
+        loader: () =>
+          fetch("https://e-pathshala-sarwarhridoy4.vercel.app/blogs"),
+        element: <Blogs></Blogs>,
+      },
+      {
+        path: "/get-started",
+        element: <SignUp></SignUp>,
+      },
+      {
+        path: "/signin",
+        element: <Signin></Signin>,
+      },
+      {
+        path: "/category/:id",
+        loader: ({ params }) =>
+          fetch(
+            `https://e-pathshala-sarwarhridoy4.vercel.app/category/${params.id}`
+          ),
+        element: <Course></Course>,
+      },
+      {
+        path: "/details/:id",
+        loader: ({ params }) =>
+          fetch(
+            `https://e-pathshala-sarwarhridoy4.vercel.app/details/${params.id}`
+          ),
+        element: <CourseDetail></CourseDetail>,
+      },
+    ],
+  },
+]);
