@@ -54,11 +54,11 @@ export const routes = createBrowserRouter([
         path: "/category/:id",
         loader: ({ params }) =>
           fetch(
-            `http://localhost:5000/category/${params.id}`
+            `https://e-pathshala-sarwarhridoy4.vercel.app/category/${params.id}`
           ),
         element: <CategorisedCourse></CategorisedCourse>,
       },
-      
+
       {
         path: "/details/:id",
         loader: ({ params }) =>
@@ -73,7 +73,11 @@ export const routes = createBrowserRouter([
           fetch(
             `https://e-pathshala-sarwarhridoy4.vercel.app/details/${params.id}`
           ),
-        element: <Private><Checkout></Checkout></Private>,
+        element: (
+          <Private>
+            <Checkout></Checkout>
+          </Private>
+        ),
       },
     ],
   },
