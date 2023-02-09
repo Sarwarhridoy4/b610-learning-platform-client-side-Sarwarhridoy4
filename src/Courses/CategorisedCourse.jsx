@@ -5,7 +5,7 @@ const CategorisedCourse = () => {
     const courses = useLoaderData();
     
     return (
-        <div className='grid grid-cols-3 gap-2 w-9/12 mx-auto my-10'>
+        <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 w-[90vw] mx-auto my-10'>
             {
                 courses.map((c,i)=><div key={i} className='card w-96 glass'>
                 <figure>

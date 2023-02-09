@@ -1,15 +1,17 @@
 import { GithubAuthProvider, GoogleAuthProvider } from "firebase/auth";
 import React, { useContext } from "react";
-import { Link } from "react-router-dom";
+import { toast } from "react-hot-toast";
+import { Link, useNavigate } from "react-router-dom";
 import { AuthContext } from "../Contexts/AuthProvider/AuthProvider";
 // google Provider
 const googleProvider = new GoogleAuthProvider();
 // git Provider
 const gitProvider = new GithubAuthProvider();
+
 const Signin = () => {
   //context here
-  const { signIn, googleLogin, githubLogin } = useContext(AuthContext);
-
+  const { signIn, googleLogin, githubLogin,setLoading } = useContext(AuthContext);
+  const navigate = useNavigate();
   //handelSubmit function
   const handelSubmit = (event) => {
     event.preventDefault();
@@ -22,32 +24,40 @@ const Signin = () => {
 
     signIn(email, password)
       .then((result) => {
+        setLoading(false)
         const user = result.user;
-        console.log(user);
+        toast.success(`${user?.displayName} loged in successfully!`)
+        navigate('/home')
+        
       })
       .catch((error) => {
-        console.error(error);
+        toast.error(error?.message);
       });
   };
 
   //Google signIn//
   const handelGoogle = () => {
-    githubLogin(googleProvider)
+    googleLogin(googleProvider)
+      
       .then((result) => {
+        setLoading(false)
         const user = result.user;
-        console.log(user);
+        toast.success(`${user?.displayName} loged in successfully!`)
+        navigate('/home')
       })
-      .catch((error) => console.error(error));
+      .catch((error) => toast.error(error?.message));
   };
 
   //GitHub signIn//
   const handelGitHub = () => {
-    googleLogin(gitProvider)
+    githubLogin(gitProvider)
       .then((result) => {
+        setLoading(false)
         const user = result.user;
-        console.log(user);
+        toast.success(`${user?.displayName} loged in successfully!`)
+        navigate('/home')
       })
-      .catch((error) => console.error(error));
+      .catch((error) => toast.error(error?.message));
   };
 
   return (

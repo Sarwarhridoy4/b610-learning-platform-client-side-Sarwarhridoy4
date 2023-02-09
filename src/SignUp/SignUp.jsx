@@ -1,29 +1,35 @@
 import React, { useContext } from "react";
-import { Link } from "react-router-dom";
+import { toast } from "react-hot-toast";
+import { Link, useNavigate } from "react-router-dom";
 import { AuthContext } from "../Contexts/AuthProvider/AuthProvider";
 
 const SignUp = () => {
-  const { googleLogin, githubLogin,createUser } = useContext(AuthContext);
+  const { googleLogin, githubLogin,createUser,setLoading } = useContext(AuthContext);
+  const navigate = useNavigate();
   //googleLogin
   const handelGoogleSignIn = () => {
     googleLogin()
       .then((result) => {
+        setLoading(false)
         const user = result.user;
-        console.log(user);
+        toast.success(`${user?.displayName} loged in successfully!`)
+        navigate('/home')
       })
       .catch((error) => {
-        console.error(error);
+        toast.error(error?.message);
       });
   };
   //githubLogin
   const handelGithubSignIn = () => {
     githubLogin()
       .then((result) => {
+        setLoading(false)
         const user = result.user;
-        console.log(user);
+        toast.success(`${user?.displayName} loged in successfully!`)
+        navigate('/home')
       })
       .catch((error) => {
-        console.error(error);
+        toast.error(error?.message);
       });
   };
 
@@ -41,10 +47,11 @@ const SignUp = () => {
     createUser(email, password)
       .then(result => {
         const user = result.user;
-        console.log(user);
+        toast.success(`${user?.displayName} created successfully!`)
+        navigate('/home')
       })
     .catch((error) => {
-        console.error(error);
+      toast.error(error?.message);
       });
   }
 

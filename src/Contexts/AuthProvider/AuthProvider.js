@@ -20,25 +20,32 @@ const googleProvider = new GoogleAuthProvider();
 const githubProvider = new GithubAuthProvider();
 const AuthProvider = ({ children }) => {
   const [user, setUser] = useState(null);
+  const [loading, setLoading] = useState(false);
 
   const googleLogin = () => {
+    setLoading(true)
     return signInWithPopup(auth, googleProvider);
   };
 
   const githubLogin = () => {
+    setLoading(true)
     return signInWithPopup(auth, githubProvider);
   };
 
   const createUser = (email, password) => {
+    setLoading(true)
     return createUserWithEmailAndPassword(auth, email, password);
   };
 
   const signIn = (email, password) => {
+    setLoading(true)
     return signInWithEmailAndPassword(auth, email, password);
   };
 
   // Sign out code here
   const logOut = () => {
+    setLoading(true)
+    setUser(null)
     return signOut(auth);
   };
 
@@ -61,6 +68,8 @@ const AuthProvider = ({ children }) => {
     githubLogin,
     createUser,
     signIn,
+    loading,
+    setLoading
   };
 
   return (

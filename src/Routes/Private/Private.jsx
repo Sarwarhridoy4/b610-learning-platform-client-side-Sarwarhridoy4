@@ -12,6 +12,7 @@ const Private = ({ children }) => {
         return <Loading></Loading>
     }
     if (user) {
+        
         return children
     }
     return <Navigate to='/signin' state={{from:location}} replace true></Navigate>

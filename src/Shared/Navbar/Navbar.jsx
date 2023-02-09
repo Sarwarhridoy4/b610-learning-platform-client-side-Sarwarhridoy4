@@ -1,14 +1,24 @@
 import React, { useContext, useState } from "react";
-import { Link } from "react-router-dom";
+import { toast } from "react-hot-toast";
+import { Link, useNavigate } from "react-router-dom";
 import { AuthContext } from "../../Contexts/AuthProvider/AuthProvider";
 
 const Navbar = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
-  const { user, logOut } = useContext(AuthContext);
+  const { user, logOut, setLoading } = useContext(AuthContext);
+  const navigate = useNavigate();
   const HandelSignOut = ()=>{
     logOut()
-      .then(() => { })
-    .catch((error) => {console.error(error);});
+      .then(() => {
+  
+        setLoading(false)
+        toast(`${user?.displayName} logged out!`)
+        navigate('/home')
+       })
+      .catch((error) => {
+        console.error(error)
+        toast.error(error?.message)
+      });
 
   }
   return (
