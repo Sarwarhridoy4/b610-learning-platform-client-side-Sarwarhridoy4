@@ -1,7 +1,7 @@
 import { GithubAuthProvider, GoogleAuthProvider } from "firebase/auth";
 import React, { useContext } from "react";
 import { toast } from "react-hot-toast";
-import { Link, useNavigate } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import { AuthContext } from "../Contexts/AuthProvider/AuthProvider";
 // google Provider
 const googleProvider = new GoogleAuthProvider();
@@ -12,6 +12,8 @@ const Signin = () => {
   //context here
   const { signIn, googleLogin, githubLogin,setLoading } = useContext(AuthContext);
   const navigate = useNavigate();
+  const location = useLocation();
+  let from = location.state?.from?.pathname || '/'
   //handelSubmit function
   const handelSubmit = (event) => {
     event.preventDefault();
@@ -27,7 +29,7 @@ const Signin = () => {
         setLoading(false)
         const user = result.user;
         toast.success(`${user?.displayName} loged in successfully!`)
-        navigate('/home')
+        navigate(from, { replace: true });
         
       })
       .catch((error) => {
@@ -43,7 +45,7 @@ const Signin = () => {
         setLoading(false)
         const user = result.user;
         toast.success(`${user?.displayName} loged in successfully!`)
-        navigate('/home')
+        navigate(from, { replace: true });
       })
       .catch((error) => toast.error(error?.message));
   };
@@ -55,7 +57,7 @@ const Signin = () => {
         setLoading(false)
         const user = result.user;
         toast.success(`${user?.displayName} loged in successfully!`)
-        navigate('/home')
+        navigate(from, { replace: true });
       })
       .catch((error) => toast.error(error?.message));
   };

@@ -7,20 +7,18 @@ const Navbar = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const { user, logOut, setLoading } = useContext(AuthContext);
   const navigate = useNavigate();
-  const HandelSignOut = ()=>{
+  const HandelSignOut = () => {
     logOut()
       .then(() => {
-  
-        setLoading(false)
-        toast(`${user?.displayName} logged out!`)
-        navigate('/home')
-       })
+        setLoading(false);
+        toast(`${user?.displayName} logged out!`);
+        navigate("/home");
+      })
       .catch((error) => {
-        console.error(error)
-        toast.error(error?.message)
+        console.error(error);
+        toast.error(error?.message);
       });
-
-  }
+  };
   return (
     <div>
       <div className='px-4 py-5 mx-auto sm:max-w-xl md:max-w-full lg:max-w-screen-xl md:px-24 lg:px-8'>
@@ -67,7 +65,8 @@ const Navbar = () => {
               </Link>
             </li>
           </ul>
-          <Link to='/home'
+          <Link
+            to='/home'
             aria-label='Company'
             title='Company'
             className='inline-flex items-center lg:mx-auto'
@@ -102,7 +101,11 @@ const Navbar = () => {
             {user ? (
               <label tabIndex={0} className='btn btn-ghost btn-circle avatar'>
                 <div className='w-10 rounded-full'>
-                  <img title={user.displayName} src={user?.photoURL} alt={user?.displayName} />
+                  <img
+                    title={user.displayName}
+                    src={user?.photoURL}
+                    alt={user?.displayName}
+                  />
                 </div>
               </label>
             ) : (
@@ -231,6 +234,14 @@ const Navbar = () => {
                           Sign in
                         </Link>
                       </li>
+                      {user ? (
+                        <button
+                          onClick={HandelSignOut}
+                          className='btn btn-active btn-primary'
+                        >
+                          Log Out
+                        </button>
+                      ) : null}
                     </ul>
                   </nav>
                 </div>

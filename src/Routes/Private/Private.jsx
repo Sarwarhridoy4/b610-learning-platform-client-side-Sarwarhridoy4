@@ -15,6 +15,6 @@ const Private = ({ children }) => {
         
         return children
     }
-    return <Navigate to='/signin' state={{from:location}} replace true></Navigate>
+    return <Navigate to='/signin' state={{from:location}} replace></Navigate>
 }
 export default Private;
