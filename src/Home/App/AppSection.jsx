@@ -2,7 +2,7 @@ import React from "react";
 
 const AppSection = () => {
   return (
-    <section class='bg-white my-10'>
+    <section class='bg-gradient-to-r from-blue-200 to-cyan-200 shadow-lg my-10'>
       <div class='container flex flex-col items-center px-4 py-12 mx-auto text-center'>
         <h2 class='text-2xl font-bold tracking-tight text-gray-800 xl:text-3xl '>
           Try Our Brand new App!!

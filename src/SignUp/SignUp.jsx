@@ -58,8 +58,8 @@ const SignUp = () => {
   }
 
   return (
-    <div>
-      <div className='mx-auto mt-8 mb-8 w-full max-w-md p-8 space-y-3 rounded-xl dark:bg-gray-900 dark:text-gray-100'>
+    <div className="text-white">
+      <div className='mx-auto mt-8 mb-8 w-full max-w-md p-8 space-y-3 rounded-xl bg-gradient-to-r from-violet-600 to-indigo-600 text-white'>
         <h1 className='text-2xl font-bold text-center'>SignUp</h1>
         <form onSubmit={handelSubmit}
          
