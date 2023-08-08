@@ -24,3 +24,8 @@ dist-ssr
 *.njsproj
 *.sln
 *.sw?
+
+#Firebse
+.firebase
+.firebaserc
+firebase.json
