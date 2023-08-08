@@ -1,20 +1,21 @@
-import React, { useContext } from "react";
+import { useContext } from "react";
 import { toast } from "react-hot-toast";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import { AuthContext } from "../Contexts/AuthProvider/AuthProvider";
 
 const SignUp = () => {
-  const { googleLogin, githubLogin,createUser,setLoading } = useContext(AuthContext);
+  const { googleLogin, githubLogin, createUser, setLoading } =
+    useContext(AuthContext);
   const navigate = useNavigate();
   const location = useLocation();
-  let from = location.state?.from?.pathname || '/'
+  let from = location.state?.from?.pathname || "/";
   //googleLogin
   const handelGoogleSignIn = () => {
     googleLogin()
       .then((result) => {
-        setLoading(false)
+        setLoading(false);
         const user = result.user;
-        toast.success(`${user?.displayName} loged in successfully!`)
+        toast.success(`${user?.displayName} loged in successfully!`);
         navigate(from, { replace: true });
       })
       .catch((error) => {
@@ -25,9 +26,9 @@ const SignUp = () => {
   const handelGithubSignIn = () => {
     githubLogin()
       .then((result) => {
-        setLoading(false)
+        setLoading(false);
         const user = result.user;
-        toast.success(`${user?.displayName} loged in successfully!`)
+        toast.success(`${user?.displayName} loged in successfully!`);
         navigate(from, { replace: true });
       })
       .catch((error) => {
@@ -37,7 +38,7 @@ const SignUp = () => {
 
   //Manually sign up with user details
 
-  const handelSubmit = event => {
+  const handelSubmit = (event) => {
     event.preventDefault();
     const form = event.target;
     const name = form.name.value;
@@ -45,24 +46,24 @@ const SignUp = () => {
     const password = form.password.value;
     const photoURL = form.photoURL.value;
     console.log(name, email, password, photoURL);
-    
+
     createUser(email, password)
-      .then(result => {
+      .then((result) => {
         const user = result.user;
-        toast.success(`${user?.displayName} created successfully!`)
+        toast.success(`${user?.displayName} created successfully!`);
         navigate(from, { replace: true });
       })
-    .catch((error) => {
-      toast.error(error?.message);
+      .catch((error) => {
+        toast.error(error?.message);
       });
-  }
+  };
 
   return (
-    <div className="text-white">
+    <div className='text-white'>
       <div className='mx-auto mt-8 mb-8 w-full max-w-md p-8 space-y-3 rounded-xl bg-gradient-to-r from-violet-600 to-indigo-600 text-white'>
         <h1 className='text-2xl font-bold text-center'>SignUp</h1>
-        <form onSubmit={handelSubmit}
-         
+        <form
+          onSubmit={handelSubmit}
           className='space-y-6 ng-untouched ng-pristine ng-valid'
         >
           <div className='space-y-1 text-sm'>
@@ -79,7 +80,6 @@ const SignUp = () => {
             />
           </div>
 
-
           <div className='space-y-1 text-sm'>
             <label htmlFor='password' className='block dark:text-gray-400'>
               Email
@@ -92,9 +92,7 @@ const SignUp = () => {
               required
               className='w-full px-4 py-3 rounded-md dark:border-gray-700 dark:bg-gray-900 dark:text-gray-100 focus:dark:border-violet-400'
             />
-            
           </div>
-
 
           <div className='space-y-1 text-sm'>
             <label htmlFor='password' className='block dark:text-gray-400'>
@@ -108,9 +106,7 @@ const SignUp = () => {
               required
               className='w-full px-4 py-3 rounded-md dark:border-gray-700 dark:bg-gray-900 dark:text-gray-100 focus:dark:border-violet-400'
             />
-            
           </div>
-
 
           <div className='space-y-1 text-sm'>
             <label htmlFor='password' className='block dark:text-gray-400'>
@@ -124,14 +120,12 @@ const SignUp = () => {
               required
               className='w-full px-4 py-3 rounded-md dark:border-gray-700 dark:bg-gray-900 dark:text-gray-100 focus:dark:border-violet-400'
             />
-            
           </div>
 
           <button className='block w-full p-3 text-center rounded-sm dark:text-gray-900 dark:bg-violet-400'>
             Sign Up
           </button>
         </form>
-
 
         <div className='flex items-center pt-4 space-x-1'>
           <div className='flex-1 h-px sm:w-16 dark:bg-gray-700'></div>

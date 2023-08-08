@@ -1,11 +1,10 @@
-import React, { useState } from "react";
+import { useState } from "react";
 import { useEffect } from "react";
 import { Link, useLoaderData } from "react-router-dom";
 import Course from "./Course";
 
 const Courses = () => {
   const courses = useLoaderData();
-  console.log(courses);
 
   const [categories, setcategories] = useState([]);
 
@@ -19,7 +18,7 @@ const Courses = () => {
       <input id='my-drawer' type='checkbox' className='drawer-toggle' />
       <div className='drawer-content'>
         <label
-          for='my-drawer'
+          htmlFor='my-drawer'
           className="btn btn-primary drawer-button w-full h-40 bg-[url('https://cdn.pixabay.com/photo/2017/03/25/17/55/colorful-2174045_960_720.png')] bg-cover"
         >
           Open Categories
@@ -28,10 +27,6 @@ const Courses = () => {
           {courses.map((course) => (
             <Course
               key={course.id}
-              // id={course.id}
-              // title={course.title}
-              // description={course.description}
-              // image={course.image}
               course={course}
             ></Course>
           ))}
@@ -40,9 +35,9 @@ const Courses = () => {
 
       <div className='drawer-side'>
         <label htmlFor='my-drawer' className='drawer-overlay'></label>
-        <ul className='menu p-4 overflow-y-auto w-80 bg-base-100 text-base-content'>
-          {categories.map((category) => (
-            <li>
+        <ul className='menu p-4 overflow-y-auto w-80 min-h-screen bg-base-100 text-base-content'>
+          {categories.map((category, i) => (
+            <li key={i}>
               <Link to={`/category/${category?.id}`}>{category.name}</Link>
             </li>
           ))}
