@@ -15,12 +15,12 @@ const Courses = () => {
       .then((data) => setcategories(data));
   }, []);
   return (
-    <div class='drawer'>
-      <input id='my-drawer' type='checkbox' class='drawer-toggle' />
-      <div class='drawer-content'>
+    <div className='drawer'>
+      <input id='my-drawer' type='checkbox' className='drawer-toggle' />
+      <div className='drawer-content'>
         <label
           for='my-drawer'
-          class="btn btn-primary drawer-button w-full h-40 bg-[url('https://cdn.pixabay.com/photo/2017/03/25/17/55/colorful-2174045_960_720.png')] bg-cover"
+          className="btn btn-primary drawer-button w-full h-40 bg-[url('https://cdn.pixabay.com/photo/2017/03/25/17/55/colorful-2174045_960_720.png')] bg-cover"
         >
           Open Categories
         </label>
@@ -38,9 +38,9 @@ const Courses = () => {
         </div>
       </div>
 
-      <div class='drawer-side'>
-        <label for='my-drawer' class='drawer-overlay'></label>
-        <ul class='menu p-4 overflow-y-auto w-80 bg-base-100 text-base-content'>
+      <div className='drawer-side'>
+        <label htmlFor='my-drawer' className='drawer-overlay'></label>
+        <ul className='menu p-4 overflow-y-auto w-80 bg-base-100 text-base-content'>
           {categories.map((category) => (
             <li>
               <Link to={`/category/${category?.id}`}>{category.name}</Link>
