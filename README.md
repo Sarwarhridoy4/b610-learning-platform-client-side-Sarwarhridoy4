@@ -10,14 +10,14 @@
 ❤️ [MambaUi](https://www.mambaui.com/).
 ❤️ [Vercel](https://vercel.com/).
 
-## Three Lonin system Impimented
+## Three Login System Implemented
 
-✅ Goolge
+✅ Google
 ✅ GitHub
 ✅ with Email And Password
 
 # Live Site
 
-[LIve Site](https://e-pathshala-authentication.web.app/)
+[Live Site](https://e-pathshala-authentication.web.app/)
 [Client Side Github](https://github.com/programming-hero-web-course1/b610-learning-platform-client-side-Sarwarhridoy4)
 [Server Side Github](https://github.com/programming-hero-web-course1/b610-lerning-platform-server-side-Sarwarhridoy4)
