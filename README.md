@@ -1,6 +1,6 @@
 # Reasource Used In this project
 
-❤️ <delete>[Create React App](https://github.com/facebook/create-react-app).</delete>
+❤️ <del>[Create React App](https://github.com/facebook/create-react-app).</del>
 ❤️ [Vite](https://vitejs.dev/).
 ❤️ [Firebase](https://firebase.google.com/).
 ❤️ [React-Router Dom](https://reactrouter.com/en/main).
