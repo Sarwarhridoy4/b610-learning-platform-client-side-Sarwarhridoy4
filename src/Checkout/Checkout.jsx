@@ -1,7 +1,7 @@
-import React from "react";
+
 import { useContext } from "react";
 import { toast } from "react-hot-toast";
-import { useLoaderData, useNavigate } from "react-router-dom";
+import { useLoaderData, useNavigate } from "react-router";
 import { AuthContext } from "../Contexts/AuthProvider/AuthProvider";
 
 const Checkout = () => {

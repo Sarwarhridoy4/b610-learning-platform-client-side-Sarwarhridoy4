@@ -1,5 +1,5 @@
 import { Toaster } from "react-hot-toast"
-import { RouterProvider } from "react-router-dom"
+import { RouterProvider } from "react-router"
 import { routes } from "./Routes/Routes/Routes"
 
 

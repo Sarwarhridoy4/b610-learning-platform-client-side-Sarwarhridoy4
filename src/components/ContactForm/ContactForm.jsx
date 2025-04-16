@@ -1,5 +1,3 @@
-import React from "react";
-
 const ContactForm = () => {
   return (
     <div className='my-10'>
@@ -10,7 +8,8 @@ const ContactForm = () => {
         <div className='mx-auto w-full max-w-[550px]'>
           <form>
             <div className='mb-5'>
-              <label htmlFor='name'
+              <label
+                htmlFor='name'
                 className='mb-3 block text-base font-medium text-[#07074D]'
               >
                 Full Name
@@ -24,7 +23,8 @@ const ContactForm = () => {
               />
             </div>
             <div className='mb-5'>
-              <label htmlFor='email'
+              <label
+                htmlFor='email'
                 className='mb-3 block text-base font-medium text-[#07074D]'
               >
                 Email Address
@@ -38,7 +38,8 @@ const ContactForm = () => {
               />
             </div>
             <div className='mb-5'>
-              <label htmlFor='subject'
+              <label
+                htmlFor='subject'
                 className='mb-3 block text-base font-medium text-[#07074D]'
               >
                 Subject
@@ -52,7 +53,8 @@ const ContactForm = () => {
               />
             </div>
             <div className='mb-5'>
-              <label htmlFor='message'
+              <label
+                htmlFor='message'
                 className='mb-3 block text-base font-medium text-[#07074D]'
               >
                 Message

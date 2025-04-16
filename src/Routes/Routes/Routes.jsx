@@ -1,4 +1,4 @@
-import { createBrowserRouter } from "react-router-dom";
+import { createBrowserRouter } from "react-router";
 import Blogs from "../../Blogs/Blogs";
 import Courses from "../../Courses/Courses";
 import SignUp from "../../SignUp/SignUp";
@@ -6,7 +6,7 @@ import Signin from "../../SignIn/Signin";
 import FAQ from "../../FAQ/FAQ";
 import Home from "../../Home/Home";
 import Main from "../../Layout/Main";
-import Errror from "../../404/Errror";
+import Errror from "../../404/Error";
 import CourseDetail from "../../Courses/CourseDetail";
 import CategorisedCourse from "../../Courses/CategorisedCourse";
 import Checkout from "../../Checkout/Checkout";
@@ -61,10 +61,12 @@ export const routes = createBrowserRouter([
 
       {
         path: "/details/:id",
-        loader: ({ params }) =>
-          fetch(
+        loader: ({ params }) => {
+          console.log(params.id);
+          return fetch(
             `https://e-pathshala-sarwarhridoy4.vercel.app/details/${params.id}`
-          ),
+          );
+        },
         element: <CourseDetail></CourseDetail>,
       },
       {

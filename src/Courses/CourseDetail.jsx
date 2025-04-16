@@ -1,31 +1,35 @@
-import React from "react";
-import { Link, useLoaderData } from "react-router-dom";
-import Pdf from "react-to-pdf";
-const ref = React.createRef();
+import { Link, useLoaderData } from "react-router";
+import { takeScreenshotAsPDF } from "../utils/screenshot";
+
 const CourseDetail = () => {
   const courses = useLoaderData()[0];
-  const { title, image, description,id } = courses;
-  // console.log(courses);
-  // console.log(title);
-  
+
   return (
     <div>
-      <Pdf targetRef={ref} filename= {`${title}.pdf`}>
-      {({ toPdf }) => <div ref={ref} className='card card-compact w-[50vw] mx-auto my-20 bg-base-100 shadow-xl'>
+      <div
+        id='targetDiv'
+        className='card card-compact w-[50vw] mx-auto my-20 bg-base-100 shadow-xl'
+      >
         <figure>
-          <img src={image} alt='Shoes' />
+          <img src={courses?.image} alt='Shoes' />
         </figure>
         <div className='card-body'>
-          <h2 className='card-title'>{title}</h2>
-                  <p>{description}</p>
+          <h2 className='card-title'>{courses?.title}</h2>
+          <p>{courses?.description}</p>
           <div className='card-actions justify-end'>
-            <button onClick={toPdf} className='btn btn-primary'>Download PDF</button>
-            <Link to={`/details/${id}/checkout`}><button className='btn btn-primary'>Checkout</button></Link>
-            
+            <button
+              onClick={() => takeScreenshotAsPDF(["targetDiv", "anotherDiv"],`${courses?.title}`)}
+              type='button'
+              className='btn btn-primary'
+            >
+              Download PDF
+            </button>
+            <Link to={`/details/${courses?.id}/checkout`}>
+              <button className='btn btn-primary'>Checkout</button>
+            </Link>
           </div>
         </div>
-      </div> }
-      </Pdf>
+      </div>
     </div>
   );
 };

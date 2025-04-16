@@ -1,5 +1,3 @@
-import React from "react";
-
 const AppSection = () => {
   return (
     <section className='bg-gradient-to-r from-blue-200 to-cyan-200 shadow-lg my-10'>

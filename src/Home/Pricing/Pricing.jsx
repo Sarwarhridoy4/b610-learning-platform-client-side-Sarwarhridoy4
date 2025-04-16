@@ -1,5 +1,3 @@
-import React from "react";
-
 const Pricing = () => {
   return (
     <div className='bg-white my-10'>
