@@ -1,22 +1,63 @@
-# Reasource Used In this project
+# E-Pathshala Client
 
-❤️ <del>[Create React App](https://github.com/facebook/create-react-app).</del>
-❤️ [Vite](https://vitejs.dev/).
-❤️ [Firebase](https://firebase.google.com/).
-❤️ [React-Router](https://reactrouter.com/en/main).
-❤️ [Tailwind](https://tailwindcss.com/).
-❤️ [Daisyui](https://daisyui.com/).
-❤️ [MambaUi](https://www.mambaui.com/).
-❤️ [Vercel](https://vercel.com/).
+Frontend for the E-Pathshala learning platform.
 
-## Three Login System Implemented
+## Tech Stack
 
-✅ Google
-✅ GitHub
-✅ with Email And Password
+- React 19 + Vite 7
+- React Router 7
+- Tailwind CSS 4 + DaisyUI
+- Firebase (Auth + Hosting)
 
-# Live Site
+## Features
 
-- [Live Site](https://e-pathshala-authentication.web.app/)
-- [Client Side Github](https://github.com/Sarwarhridoy4/b610-learning-platform-client-side-Sarwarhridoy4)
-- [Server Side Github](https://github.com/Sarwarhridoy4/b610-learning-platform-server-side-Sarwarhridoy4)
+- Neomorphic UI theme (Mist / Midnight) with theme switch
+- Firebase authentication (Google, GitHub, Email/Password)
+- Route-level lazy loading for better initial performance
+- Course details PDF export (loaded on demand)
+
+## Project Setup
+
+```bash
+cd /home/sarwar/Desktop/b610-learning-platform-client-side-Sarwarhridoy4
+npm install
+npm run dev
+```
+
+## Build
+
+```bash
+npm run build
+npm run preview
+```
+
+## Firebase Hosting (Manual Deploy)
+
+Project ID: `e-pathshala-authentication`
+
+1. Login to Firebase:
+```bash
+npx firebase-tools login
+```
+
+2. Build the app:
+```bash
+npm run build
+```
+
+3. Deploy hosting:
+```bash
+npx firebase-tools deploy --only hosting --project e-pathshala-authentication
+```
+
+## Useful Files
+
+- Firebase config: `src/Firebase/firebase.config.js`
+- Hosting config: `firebase.json`
+- Firebase project alias: `.firebaserc`
+
+## Links
+
+- Live Site: https://e-pathshala-authentication.web.app/
+- Client Repo: https://github.com/Sarwarhridoy4/b610-learning-platform-client-side-Sarwarhridoy4
+- Server Repo: https://github.com/Sarwarhridoy4/b610-lerning-platform-server-side-Sarwarhridoy4
