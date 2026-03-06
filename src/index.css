@@ -214,6 +214,7 @@ body {
 }
 
 [data-ui-theme="midnight"] .text-slate-700,
+[data-ui-theme="midnight"] .text-slate-800,
 [data-ui-theme="midnight"] .text-slate-600,
 [data-ui-theme="midnight"] .text-slate-500 {
   color: #b8c7dc !important;
