@@ -1,77 +1,55 @@
 .loader {
-    width: 100px;
-    height: 100px;
-    -webkit-box-sizing: border-box;
-            box-sizing: border-box;
-    border-radius: 50%;
-    border-top: 5px solid #e74c3c;
-    position: relative;
-    -webkit-animation: load 2s linear infinite;
-            animation: load 2s linear infinite;
+  width: 96px;
+  height: 96px;
+  box-sizing: border-box;
+  border-radius: 50%;
+  border-top: 5px solid #0f766e;
+  position: relative;
+  animation: load 1.6s linear infinite;
+}
+
+.loader::before,
+.loader::after {
+  content: "";
+  width: 96px;
+  height: 96px;
+  position: absolute;
+  left: 0;
+  top: 0;
+  box-sizing: border-box;
+  border-radius: 50%;
+}
+
+.loader::before {
+  border-top: 5px solid #0ea5e9;
+  transform: rotate(120deg);
+}
+
+.loader::after {
+  border-top: 5px solid #f59e0b;
+  transform: rotate(240deg);
+}
+
+.loader span {
+  position: absolute;
+  width: 96px;
+  height: 96px;
+  color: #334155;
+  text-align: center;
+  line-height: 96px;
+  font-size: 12px;
+  font-weight: 700;
+  animation: reverse-load 1.6s linear infinite;
+}
+
+@keyframes load {
+  to {
+    transform: rotate(360deg);
   }
-  
-  .loader::before,.loader::after {
-    content: '';
-    width: 100px;
-    height: 100px;
-    position: absolute;
-    left: 0;
-    top: 0;
-    -webkit-box-sizing: border-box;
-            box-sizing: border-box;
-    border-radius: 50%;
+}
+
+@keyframes reverse-load {
+  to {
+    transform: rotate(-360deg);
   }
-  
-  .loader::before {
-    border-top: 5px solid #e67e22;
-    -webkit-transform: rotate(120deg);
-        -ms-transform: rotate(120deg);
-            transform: rotate(120deg);
-  }
-  
-  .loader::after {
-    border-top: 5px solid #3498db;
-    -webkit-transform: rotate(240deg);
-        -ms-transform: rotate(240deg);
-            transform: rotate(240deg);
-  }
-  
-  .loader span {
-    position: absolute;
-    font-size: small;
-    width: 100px;
-    height: 100px;
-    color: #fff;
-    text-align: center;
-    line-height: 100px;
-    -webkit-animation: a2 2s linear infinite;
-            animation: a2 2s linear infinite;
-  }
-  
-  @-webkit-keyframes load {
-    to {
-      -webkit-transform: rotate(360deg);
-              transform: rotate(360deg);
-    }
-  }
-  
-  @keyframes load {
-    to {
-      -webkit-transform: rotate(360deg);
-              transform: rotate(360deg);
-    }
-  }
-  
-  @-webkit-keyframes a2 {
-    to {
-      -webkit-transform: rotate(-360deg);
-              transform: rotate(-360deg);
-    }
-  }
-  
-  @keyframes a2 {
-    to {
-      -webkit-transform: rotate(-360deg);
-              transform: rotate(-360deg);
-    }
-  }
+}

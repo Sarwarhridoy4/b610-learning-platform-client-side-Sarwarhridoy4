@@ -1,11 +1,12 @@
-import ContactForm from "../components/ContactForm/ContactForm";
-import AppSection from "./App/AppSection";
-import Cover from "./Cover/Cover";
-import Pricing from "./Pricing/Pricing";
+
+import ContactForm from "../components/ContactForm/ContactForm.jsx";
+import AppSection from "./App/AppSection.jsx";
+import Cover from "./Cover/Cover.jsx";
+import Pricing from "./Pricing/Pricing.jsx";
 
 const Home = () => {
   return (
-    <div>
+    <div className='space-y-8'>
       <Cover />
       <Pricing />
       <AppSection />

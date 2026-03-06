@@ -1,46 +1,45 @@
-import { useState } from "react";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import { Link, useLoaderData } from "react-router";
-import Course from "./Course";
+import Course from "./Course.jsx";
 
 const Courses = () => {
   const courses = useLoaderData();
-
-  const [categories, setcategories] = useState([]);
+  const [categories, setCategories] = useState([]);
 
   useEffect(() => {
     fetch("https://e-pathshala-sarwarhridoy4.vercel.app/course-categories")
       .then((response) => response.json())
-      .then((data) => setcategories(data));
+      .then((data) => setCategories(data));
   }, []);
+
   return (
-    <div className='drawer'>
-      <input id='my-drawer' type='checkbox' className='drawer-toggle' />
-      <div className='drawer-content'>
-        <label
-          htmlFor='my-drawer'
-          className="btn btn-primary drawer-button w-full h-40 bg-[url('https://cdn.pixabay.com/photo/2017/03/25/17/55/colorful-2174045_960_720.png')] bg-cover"
-        >
-          Open Categories
-        </label>
-        <div className='mx-5 my-6 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-1'>
-          {courses.map((course) => (
-            <Course key={course.id} course={course}></Course>
+    <section className='page-shell space-y-5'>
+      <div className='soft-card tint-surface p-6'>
+        <h1 className='text-3xl font-black'>Course Library</h1>
+        <p className='mt-2 text-slate-700'>Pick a course and start learning with guided content and assignments.</p>
+      </div>
+
+      <div className='soft-card p-5'>
+        <h2 className='text-sm font-black uppercase tracking-wide text-slate-500'>Browse Categories</h2>
+        <div className='mt-3 flex flex-wrap gap-2'>
+          {categories.map((category) => (
+            <Link
+              key={category?.id}
+              to={`/category/${category?.id}`}
+              className='neo-chip px-4 py-2 text-sm font-semibold'
+            >
+              {category?.name}
+            </Link>
           ))}
         </div>
       </div>
 
-      <div className='drawer-side'>
-        <label htmlFor='my-drawer' className='drawer-overlay'></label>
-        <ul className='menu p-4 overflow-y-auto w-80 min-h-screen bg-base-100 text-base-content'>
-          {categories.map((category, i) => (
-            <li key={i}>
-              <Link to={`/category/${category?.id}`}>{category.name}</Link>
-            </li>
-          ))}
-        </ul>
+      <div className='grid gap-4 sm:grid-cols-2 lg:grid-cols-3'>
+        {courses.map((course) => (
+          <Course key={course.id} course={course} />
+        ))}
       </div>
-    </div>
+    </section>
   );
 };
 

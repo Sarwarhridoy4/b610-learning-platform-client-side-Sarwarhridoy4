@@ -1,15 +1,14 @@
-import { Toaster } from "react-hot-toast"
-import { RouterProvider } from "react-router"
-import { routes } from "./Routes/Routes/Routes"
-
+import { Toaster } from "react-hot-toast";
+import { RouterProvider } from "react-router";
+import { routes } from "./Routes/Routes/Routes.jsx";
 
 const App = () => {
   return (
-    <div>
-      <RouterProvider router={routes}></RouterProvider>
-      <Toaster></Toaster>
-    </div>
-  )
-}
+    <>
+      <RouterProvider router={routes} />
+      <Toaster position='top-right' />
+    </>
+  );
+};
 
-export default App
+export default App;

@@ -29,3 +29,7 @@ dist-ssr
 .firebase
 .firebaserc
 firebase.json
+
+# Bun local cache
+.bun-install/
+.bun-tmp/

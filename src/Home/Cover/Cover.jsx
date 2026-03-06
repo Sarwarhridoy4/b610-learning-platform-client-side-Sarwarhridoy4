@@ -1,28 +1,27 @@
+
 import { Link } from "react-router";
 
 const Cover = () => {
   return (
-    <div
-      className='hero min-h-screen'
-      style={{
-        backgroundImage: `url("https://i.ibb.co/4P552qJ/freelancer-gab2cdc7af-1280.png")`,
-      }}
-    >
-      <div className='hero-overlay bg-opacity-60'></div>
-      <div className='hero-content text-center text-neutral-content'>
-        <div className='max-w-md'>
-          <h1 className='mb-5 text-5xl font-bold'>Welcome Onboard!!</h1>
-          <p className='mb-5'>
-            We are here to help you with Quality online Course. We are always
-            here with 24/7 support. We provide World class course with best
-            trainers.
-          </p>
-          <Link to='/courses'>
-            <button className='btn btn-primary'>Get Started</button>
+    <section className='page-shell'>
+      <div className='soft-card hero-lens overflow-hidden p-8 md:p-12'>
+        <p className='text-xs uppercase tracking-[0.26em] text-slate-700 font-bold'>Professional Learning Space</p>
+        <h1 className='mt-3 text-4xl md:text-5xl font-extrabold leading-tight max-w-3xl text-slate-900'>
+          Sleek, Structured Courses For Real-World Skills
+        </h1>
+        <p className='mt-4 max-w-2xl text-slate-700 leading-7'>
+          Build strong fundamentals, complete practical projects, and move toward your career goals with a polished learning workflow.
+        </p>
+        <div className='mt-7 flex flex-wrap gap-3'>
+          <Link to='/courses' className='brand-button'>
+            Explore Courses
+          </Link>
+          <Link to='/get-started' className='brand-button alt'>
+            Create Account
           </Link>
         </div>
       </div>
-    </div>
+    </section>
   );
 };
 

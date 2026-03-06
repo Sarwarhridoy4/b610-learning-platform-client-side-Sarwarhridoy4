@@ -1,85 +1,79 @@
+import { lazy, Suspense } from "react";
 import { createBrowserRouter } from "react-router";
-import Blogs from "../../Blogs/Blogs";
-import Courses from "../../Courses/Courses";
-import SignUp from "../../SignUp/SignUp";
-import Signin from "../../SignIn/Signin";
-import FAQ from "../../FAQ/FAQ";
-import Home from "../../Home/Home";
-import Main from "../../Layout/Main";
-import Errror from "../../404/Error";
-import CourseDetail from "../../Courses/CourseDetail";
-import CategorisedCourse from "../../Courses/CategorisedCourse";
-import Checkout from "../../Checkout/Checkout";
-import Private from "../Private/Private";
+import Loading from "../../Loading/Loading.jsx";
+import Private from "../Private/Private.jsx";
+
+const Main = lazy(() => import("../../Layout/Main.jsx"));
+const ErrorPage = lazy(() => import("../../404/Error.jsx"));
+const Home = lazy(() => import("../../Home/Home.jsx"));
+const Courses = lazy(() => import("../../Courses/Courses.jsx"));
+const FAQ = lazy(() => import("../../FAQ/FAQ.jsx"));
+const Blogs = lazy(() => import("../../Blogs/Blogs.jsx"));
+const SignUp = lazy(() => import("../../SignUp/SignUp.jsx"));
+const Signin = lazy(() => import("../../SignIn/Signin.jsx"));
+const CategorisedCourse = lazy(() => import("../../Courses/CategorisedCourse.jsx"));
+const CourseDetail = lazy(() => import("../../Courses/CourseDetail.jsx"));
+const Checkout = lazy(() => import("../../Checkout/Checkout.jsx"));
+
+const lazyElement = (Component) => (
+  <Suspense fallback={<Loading />}>
+    <Component />
+  </Suspense>
+);
 
 export const routes = createBrowserRouter([
   {
     path: "/",
-    element: <Main></Main>,
-    errorElement: <Errror></Errror>,
+    element: lazyElement(Main),
+    errorElement: lazyElement(ErrorPage),
     children: [
       {
         path: "/",
-        element: <Home></Home>,
+        element: lazyElement(Home),
       },
       {
         path: "/home",
-        element: <Home></Home>,
+        element: lazyElement(Home),
       },
       {
         path: "/courses",
-        loader: () =>
-          fetch("https://e-pathshala-sarwarhridoy4.vercel.app/courses"),
-        element: <Courses></Courses>,
+        loader: () => fetch("https://e-pathshala-sarwarhridoy4.vercel.app/courses"),
+        element: lazyElement(Courses),
       },
       {
         path: "/faq",
-        element: <FAQ></FAQ>,
+        element: lazyElement(FAQ),
       },
       {
         path: "/blogs",
-        loader: () =>
-          fetch("https://e-pathshala-sarwarhridoy4.vercel.app/blogs"),
-        element: <Blogs></Blogs>,
+        loader: () => fetch("https://e-pathshala-sarwarhridoy4.vercel.app/blogs"),
+        element: lazyElement(Blogs),
       },
       {
         path: "/get-started",
-        element: <SignUp></SignUp>,
+        element: lazyElement(SignUp),
       },
       {
         path: "/signin",
-        element: <Signin></Signin>,
+        element: lazyElement(Signin),
       },
       {
         path: "/category/:id",
         loader: ({ params }) =>
-          fetch(
-            `https://e-pathshala-sarwarhridoy4.vercel.app/category/${params.id}`
-          ),
-        element: <CategorisedCourse></CategorisedCourse>,
+          fetch(`https://e-pathshala-sarwarhridoy4.vercel.app/category/${params.id}`),
+        element: lazyElement(CategorisedCourse),
       },
-
       {
         path: "/details/:id",
-        loader: ({ params }) => {
-          console.log(params.id);
-          return fetch(
-            `https://e-pathshala-sarwarhridoy4.vercel.app/details/${params.id}`
-          );
-        },
-        element: <CourseDetail></CourseDetail>,
+        loader: ({ params }) =>
+          fetch(`https://e-pathshala-sarwarhridoy4.vercel.app/details/${params.id}`),
+        element: lazyElement(CourseDetail),
       },
       {
         path: "/details/:id/checkout",
         loader: ({ params }) =>
-          fetch(
-            `https://e-pathshala-sarwarhridoy4.vercel.app/details/${params.id}`
-          ),
-        element: (
-          <Private>
-            <Checkout></Checkout>
-          </Private>
-        ),
+          fetch(`https://e-pathshala-sarwarhridoy4.vercel.app/details/${params.id}`),
+        element: <Private>{lazyElement(Checkout)}</Private>,
       },
     ],
   },
