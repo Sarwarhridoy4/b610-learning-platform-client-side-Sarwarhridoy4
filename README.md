@@ -15,6 +15,11 @@ Frontend for the E-Pathshala learning platform.
 - Firebase authentication (Google, GitHub, Email/Password)
 - Route-level lazy loading for better initial performance
 - Course details PDF export (loaded on demand)
+- Home page random hadith section with refresh button
+
+## External API
+
+- Random Hadith: `https://hadith-server.vercel.app/api/random-hadith`
 
 ## Project Setup
 
